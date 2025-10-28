@@ -33,7 +33,12 @@ public:
         }else {
             return false;
         }
+    }
 
+    Pokemon& operator=(const Pokemon &pokemon) {
+        this->name = pokemon.name;
+        this->teamStats = pokemon.teamStats;
+        return *this;
     }
 
     string getName() {

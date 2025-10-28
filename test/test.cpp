@@ -16,17 +16,17 @@
 TEST_CASE("Trie insertion and search", "[flag]") {
     TrieTree tree;
     Pokemon pokemon1 =  Pokemon("bruh");
-    tree.insert(&pokemon1);
+    tree.insert(pokemon1);
     REQUIRE(tree.exists(pokemon1) == true);
     REQUIRE(tree.exists("bruh") == true);
-    Pokemon* pokemon3 = tree.get(pokemon1);
-    REQUIRE(pokemon3  == &pokemon1);
+    Pokemon pokemon3 = tree.get(pokemon1);
+    REQUIRE(pokemon3  == pokemon1);
     Pokemon pokemon2 =  Pokemon("nah");
     REQUIRE(tree.exists(pokemon2) == false);
-    tree.insert(&pokemon2);
+    tree.insert(pokemon2);
     REQUIRE(tree.exists(pokemon2) == true);
     pokemon3 = tree.get(pokemon2);
-    REQUIRE(pokemon3== &pokemon2);
+    REQUIRE(pokemon3==  pokemon2);
 }
 
 
@@ -85,26 +85,16 @@ TEST_CASE("Hash table alpha and digit (100,000 data points)", "[flag]") {
 
     for (int i = 0; i < 100000; i++) {
         REQUIRE(table.search(names[i]) == true);
-    }
-
-    for (int i = 0; i < pokemons.size(); i++) {
         REQUIRE(*table.get(names[i]) == pokemons[i]);
     }
-    Pokemon unique =  pokemons[990];
-    REQUIRE(*table.get(names[990]) == unique);
-    Pokemon uniqueTable = *table.get(names[990]);
-
-    REQUIRE(uniqueTable == unique);
-
 }
 
 TEST_CASE("Trie insertion 100,000 points test", "[flag]") {
     TrieTree tree;
     vector<string> names;
     vector<Pokemon> pokemons;
-    string regular_name = "pokemon";
     for (int i = 0; i < 100000; i++) {
-        string name = regular_name + to_string(i);
+        string name = to_string(i);
         names.push_back(name);
         map<string, float> mapping;
         for (int j = 0; j < 20; j++) {
@@ -116,11 +106,14 @@ TEST_CASE("Trie insertion 100,000 points test", "[flag]") {
 
         Pokemon pokemon = Pokemon(name, mapping);
         pokemons.push_back(pokemon);
-        tree.insert(&pokemon);
+        tree.insert(pokemon);
     }
 
     for (int i = 0; i < 100000; i++) {
         REQUIRE(tree.exists(names[i]) == true);
+        Pokemon other = tree.get(names[i]);
+        Pokemon pokemon = pokemons[i];
+        REQUIRE(other == pokemon);
     }
 
 
