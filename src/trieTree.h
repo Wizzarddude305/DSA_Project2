@@ -1,15 +1,10 @@
-//
-// Created by Frank Ascencio on 10/26/25.
-//
-
-#ifndef TIRETREE_H
-#define TIRETREE_H
+#pragma once
 #include <array>
 #include <string>
 #include <cctype>
 #include "pokemon.h"
 using namespace std;
-#endif //TIRETREE_H
+
 
 struct trieNode {
     array<trieNode*, 36> children;
@@ -56,7 +51,8 @@ class TrieTree {
         current->pokemon = pokemon;
     }
 
-    bool exists(Pokemon pokemon) {
+    //Search method to see if a name or pokemon object exists in the tree
+    bool search(Pokemon pokemon) {
         trieNode* current = root;
         string target = pokemon.getName();
         for (int i = 0; i < target.length(); i++) {
@@ -70,7 +66,7 @@ class TrieTree {
         return current->isWord;
     }
 
-    bool exists(string target) {
+    bool search(string target) {
         trieNode* current = root;
         for (int i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
@@ -83,6 +79,7 @@ class TrieTree {
         return current->isWord;
     }
 
+    //Getters for a specific pokemon with either it's name or the pokemon object
     Pokemon get(Pokemon pokemon) {
         trieNode* current = root;
         string target = pokemon.getName();

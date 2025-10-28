@@ -1,12 +1,8 @@
-//
-// Created by Frank Ascencio on 10/26/25.
-//
-
-#ifndef POKEMON_H
-#define POKEMON_H
+#pragma once
 #include <map>
 using namespace std;
 
+//This class
 class Pokemon {
 private:
     string name;
@@ -55,4 +51,4 @@ public:
         teamStats.clear();
     }
 };
-#endif //POKEMON_H
+

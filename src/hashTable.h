@@ -1,9 +1,4 @@
-//
-// Created by Frank Ascencio on 10/26/25.
-//
-
-#ifndef HASHTABLE_H
-#define HASHTABLE_H
+#pragma once
 #include "pokemon.h"
 #include "linkedLists.h"
 
@@ -35,13 +30,16 @@ private:
 public:
     HashTable() {
         buckets = 5;
+        //Store points via seperate chaining
         arr = new LinkedList[buckets];
+        //This hasnumber is determined by the amount of characters you're including
         hashNumber = 36;
         loadFactor = 0.0;
         elements = 0;
         maxLoadFactor = .75;
     }
 
+    //The two different hash functions for either only alphabet or both alphabet and digits
     int alphabetHash(char k, int power) {
         return (tolower(k) - 'a') * exp(hashNumber, power);
     }
@@ -54,6 +52,7 @@ public:
         }
     }
 
+    //Converts a string to deseried hash
     int stringHash(string key) {
         int power = key.size() - 1;
         int hash = 0;
@@ -64,9 +63,12 @@ public:
         return hash;
     }
 
+    //This is the insertion for a Pokemon object
     void insert(Pokemon& p) {
         int hashNum = stringHash(p.getName());
+        //Must do absolute value due to integer overflow
         int index = abs(hashNum % buckets);
+        //Append new pokemon in to the linked list in said index
         arr[index].append(p);
         elements++;
         float x = elements;
@@ -77,6 +79,7 @@ public:
         }
     }
 
+    //Resize if maximum load factor is reached
     void resizeArr() {
         buckets *=  2;
         LinkedList* newArr = new LinkedList[buckets];
@@ -97,18 +100,27 @@ public:
         arr = newArr;
     }
 
+    //Search if a pokemon exists via name or Pokemon object
     bool search(string name) {
         int hashNum = stringHash(name);
         int index = abs(hashNum % buckets);
         return arr[index].nameSearch(name);;
     }
 
-    Pokemon* get(string name) {
-        int hashNum = stringHash(name);
+    bool search(Pokemon p) {
+        int hashNum = stringHash(p.getName());
         int index = abs(hashNum % buckets);
-        return arr[index].get(name);
+        return arr[index].nameSearch(p.getName());;
     }
 
+    //Get Pokemon object via name
+    Pokemon get(string name) {
+        int hashNum = stringHash(name);
+        int index = abs(hashNum % buckets);
+        return *arr[index].get(name);
+    }
+
+    //All basic getters for private variables
     float getLoadFactor() {
         return loadFactor;
     }
@@ -126,4 +138,4 @@ public:
     }
 
 };
-#endif //HASHTABLE_H
+

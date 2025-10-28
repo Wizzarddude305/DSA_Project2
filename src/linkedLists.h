@@ -1,11 +1,7 @@
-//
-// Created by Frank Ascencio on 10/27/25.
-//
-
-#ifndef LINKEDLISTS_H
-#define LINKEDLISTS_H
+#pragma once
 #include "pokemon.h"
 
+//Structure for a singly linked Node
 struct linkedNode{
     Pokemon pokemon;
     linkedNode* next;
@@ -16,6 +12,7 @@ struct linkedNode{
 
 };
 
+//Basic linked list structure consisting of head and tail pointers
 class LinkedList {
 private:
     linkedNode* head;
@@ -81,4 +78,3 @@ public:
         return head;
     }
 };
-#endif //LINKEDLISTS_H

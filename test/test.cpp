@@ -1,7 +1,5 @@
-//
-// Created by Frank Ascencio on 10/26/25.
-//
 
+#pragma once
 #include <catch2/catch_test_macros.hpp>
 #include <iostream>
 #include "trieTree.h"
@@ -17,14 +15,14 @@ TEST_CASE("Trie insertion and search", "[flag]") {
     TrieTree tree;
     Pokemon pokemon1 =  Pokemon("bruh");
     tree.insert(pokemon1);
-    REQUIRE(tree.exists(pokemon1) == true);
-    REQUIRE(tree.exists("bruh") == true);
+    REQUIRE(tree.search(pokemon1) == true);
+    REQUIRE(tree.search("bruh") == true);
     Pokemon pokemon3 = tree.get(pokemon1);
     REQUIRE(pokemon3  == pokemon1);
     Pokemon pokemon2 =  Pokemon("nah");
-    REQUIRE(tree.exists(pokemon2) == false);
+    REQUIRE(tree.search(pokemon2) == false);
     tree.insert(pokemon2);
-    REQUIRE(tree.exists(pokemon2) == true);
+    REQUIRE(tree.search(pokemon2) == true);
     pokemon3 = tree.get(pokemon2);
     REQUIRE(pokemon3==  pokemon2);
 }
@@ -40,8 +38,8 @@ TEST_CASE("Hash table resizing", "[flag]") {
     }
 
     for (int i = 0; i < 3; i++) {
-        bool exists = table.search(arr[i]);
-        REQUIRE(exists == true);
+        bool search = table.search(arr[i]);
+        REQUIRE(search == true);
     }
 
     pokemon = Pokemon(arr[3]);
@@ -53,8 +51,8 @@ TEST_CASE("Hash table resizing", "[flag]") {
     REQUIRE(table.getLoadFactor() == 0.4f);
 
     for (int i = 0; i < 4; i++) {
-        bool exists = table.search(arr[i]);
-        REQUIRE(exists == true);
+        bool search = table.search(arr[i]);
+        REQUIRE(search == true);
     }
 
 }
@@ -72,10 +70,10 @@ TEST_CASE("Hash table alpha and digit (100,000 data points)", "[flag]") {
         names.push_back(name);
         map<string, float> mapping;
         for (int j = 0; j < 20; j++) {
-                string teamName = "teammatePokemon" + to_string(j);
-                int raw = rand() % 10000 + 1;
-                float random_percent = raw/100.0f;
-                mapping[teamName] = random_percent;
+            string teamName = "teammatePokemon" + to_string(j);
+            int raw = rand() % 10000 + 1;
+            float random_percent = raw/100.0f;
+            mapping[teamName] = random_percent;
         }
 
         Pokemon pokemon = Pokemon(name);
@@ -84,8 +82,16 @@ TEST_CASE("Hash table alpha and digit (100,000 data points)", "[flag]") {
     }
 
     for (int i = 0; i < 100000; i++) {
-        REQUIRE(table.search(names[i]) == true);
-        REQUIRE(*table.get(names[i]) == pokemons[i]);
+        name = regular_name + to_string(i);
+        REQUIRE(table.search(name) == true);
+        Pokemon pokemon = table.get(name);
+        REQUIRE(pokemon == pokemons[i]);
+        REQUIRE(pokemon.getTeamStats() == pokemons[i].getTeamStats());
+        map<string, float> mapping;
+        mapping = pokemon.getTeamStats();
+        for (auto it = mapping.begin(); it != mapping.end(); it++) {
+            REQUIRE(it->second == pokemons[i].getTeamStats()[it->first]);
+        }
     }
 }
 
@@ -94,7 +100,7 @@ TEST_CASE("Trie insertion 100,000 points test", "[flag]") {
     vector<string> names;
     vector<Pokemon> pokemons;
     for (int i = 0; i < 100000; i++) {
-        string name = to_string(i);
+        string name = "pokemon" + to_string(i);
         names.push_back(name);
         map<string, float> mapping;
         for (int j = 0; j < 20; j++) {
@@ -110,7 +116,7 @@ TEST_CASE("Trie insertion 100,000 points test", "[flag]") {
     }
 
     for (int i = 0; i < 100000; i++) {
-        REQUIRE(tree.exists(names[i]) == true);
+        REQUIRE(tree.search(names[i]) == true);
         Pokemon other = tree.get(names[i]);
         Pokemon pokemon = pokemons[i];
         REQUIRE(other == pokemon);
