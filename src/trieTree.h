@@ -14,11 +14,10 @@ using namespace std;
 struct trieNode {
     array<trieNode*, 36> children;
     bool isWord;
-    Pokemon* pokemon;
+    Pokemon pokemon;
     trieNode() {
         isWord = false;
         children.fill(nullptr);
-        pokemon = nullptr;
     }
 };
 
@@ -29,7 +28,7 @@ class TrieTree {
         root =  new trieNode();
     }
 
-
+    //Conversion of either alphabets into
     int alphabet(char k) {
         return (tolower(k) - 'a');
     }
@@ -42,9 +41,9 @@ class TrieTree {
         }
     }
 
-    void insert(Pokemon* pokemon) {
+    void insert(Pokemon pokemon) {
         trieNode* current = root;
-        string target = pokemon->getName();
+        string target = pokemon.getName();
         for (int i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
@@ -84,27 +83,27 @@ class TrieTree {
         return current->isWord;
     }
 
-    Pokemon* get(Pokemon pokemon) {
+    Pokemon get(Pokemon pokemon) {
         trieNode* current = root;
         string target = pokemon.getName();
         for (int i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
-                return nullptr;
+                current->children[index] = new trieNode();
             }
             current = current->children[index];
         }
         return current->pokemon;
     }
 
-    Pokemon* get(string target) {
+    Pokemon get(string target) {
         trieNode* current = root;
         for (int i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
-                return nullptr;
+                current->children[index] = new trieNode();
             }
             current = current->children[index];
         }
