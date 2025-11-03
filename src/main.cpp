@@ -1,12 +1,13 @@
-#pragma once
 #include <iostream>
 #include "trieTree.h"
 #include "pokemon.h"
 #include "hashTable.h"
 #include <set>
 #include <string>
+#include <fstream>
 
 using namespace std;
+
 
 HashTable createHashTable(int nodeNumber) {
     HashTable table;
@@ -111,7 +112,8 @@ void trieTree() {
     }
 }
 
-int main() {
+
+void searchAndMaking() {
     int decision;
     cout << "0 for Hash and 1 for tree: ";
     cin >> decision;
@@ -120,6 +122,32 @@ int main() {
     }else if (decision == 1) {
         trieTree();
     }
-    return 0;
+}
 
+int main() {
+    int genNum = 1;
+    int indexRank = 0;
+    int ranks[5] = {0, 2, 3, 4, 5};
+    string uses[2] = {"ou", "uu"};
+    int indexUse = 0;
+    string dataPath = "data/cppOrganized/";
+    string fileName = dataPath + "AllPokemon-organized.txt";
+
+    cout << fileName << endl;
+    ifstream infile(fileName); // open file for reading
+
+    if (!infile) { // check if file opened successfully
+        cerr << "Error: Could not open file " << fileName << endl;
+        return 1;
+    }
+
+    cout << "File opened successfully!" << endl;
+
+    string line;
+    while (getline(infile, line)) {
+        cout << line << endl; // process the file line by line
+    }
+
+    infile.close();
+    return 0;
 }
