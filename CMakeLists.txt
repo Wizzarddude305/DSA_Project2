@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 project(DSA_Project2)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 
 #compile flags to match Gradescope test environment
 set(GCC_COVERAGE_COMPILE_FLAGS "-Wall -Werror")
@@ -25,7 +25,8 @@ add_executable(Tests
         src/trieTree.h
         src/hashTable.h
         src/pokemon.h
-        src/linkedLists.h # your test file
+        src/linkedLists.h
+        # your test file
         # add your own header files below
 )
 
