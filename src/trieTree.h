@@ -36,10 +36,11 @@ class TrieTree {
         }
     }
 
+    // Note: loops use size_t for indices to match std::string::length() type
     void insert(Pokemon pokemon) {
         trieNode* current = root;
         string target = pokemon.getName();
-        for (int i = 0; i < target.length(); i++) {
+        for (size_t i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
@@ -55,7 +56,7 @@ class TrieTree {
     bool search(Pokemon pokemon) {
         trieNode* current = root;
         string target = pokemon.getName();
-        for (int i = 0; i < target.length(); i++) {
+        for (size_t i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
@@ -68,7 +69,7 @@ class TrieTree {
 
     bool search(string target) {
         trieNode* current = root;
-        for (int i = 0; i < target.length(); i++) {
+        for (size_t i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
@@ -83,7 +84,7 @@ class TrieTree {
     Pokemon get(Pokemon pokemon) {
         trieNode* current = root;
         string target = pokemon.getName();
-        for (int i = 0; i < target.length(); i++) {
+        for (size_t i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
@@ -96,7 +97,7 @@ class TrieTree {
 
     Pokemon get(string target) {
         trieNode* current = root;
-        for (int i = 0; i < target.length(); i++) {
+        for (size_t i = 0; i < target.length(); i++) {
             char c = tolower(target[i]);
             int index = digitAndAlpha(c);
             if (!current->children[index]) {
