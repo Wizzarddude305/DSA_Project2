@@ -10,6 +10,7 @@
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMessageBox>
+#include <QtCore/QDir>
 #include <algorithm>
 #include <fstream>
 #include <string>
@@ -179,14 +180,33 @@ public:
         connect(searchBtn, &QPushButton::clicked, this, &MainWindow::onSearch);
 
         // Load data and build structures
+        // Try multiple paths: from project root, or relative to build directory
         statusLabel->setText("Loading data...");
         QApplication::processEvents();
-        pokemons = loadPokemonsFromFile("data/cppOrganized/AllPokemon-organized.txt");
-        if (pokemons.empty()) {
+        QStringList pathsToTry = {
+            "data/cppOrganized/AllPokemon-organized.txt",  // From project root
+            "../data/cppOrganized/AllPokemon-organized.txt", // From build directory
+            "../../data/cppOrganized/AllPokemon-organized.txt" // If deeper in build tree
+        };
+        
+        bool loaded = false;
+        for (const QString &path : pathsToTry) {
+            pokemons = loadPokemonsFromFile(path.toStdString());
+            if (!pokemons.empty()) {
+                loaded = true;
+                break;
+            }
+        }
+        
+        if (!loaded) {
             QMessageBox::critical(this, "Error", 
-                "Could not load Pokemon data file.\n"
-                "Expected: data/cppOrganized/AllPokemon-organized.txt\n"
-                "Current working directory may be incorrect.");
+                QString("Could not load Pokemon data file.\n"
+                        "Tried paths:\n"
+                        "- data/cppOrganized/AllPokemon-organized.txt\n"
+                        "- ../data/cppOrganized/AllPokemon-organized.txt\n"
+                        "- ../../data/cppOrganized/AllPokemon-organized.txt\n\n"
+                        "Current working directory: %1")
+                .arg(QDir::currentPath()));
             statusLabel->setText("Error: No data loaded");
         } else {
             for (auto &p : pokemons) {
