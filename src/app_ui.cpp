@@ -182,11 +182,19 @@ public:
         statusLabel->setText("Loading data...");
         QApplication::processEvents();
         pokemons = loadPokemonsFromFile("data/cppOrganized/AllPokemon-organized.txt");
-        for (auto &p : pokemons) {
-            tableHash.insert(p);
-            trie.insert(p);
+        if (pokemons.empty()) {
+            QMessageBox::critical(this, "Error", 
+                "Could not load Pokemon data file.\n"
+                "Expected: data/cppOrganized/AllPokemon-organized.txt\n"
+                "Current working directory may be incorrect.");
+            statusLabel->setText("Error: No data loaded");
+        } else {
+            for (auto &p : pokemons) {
+                tableHash.insert(p);
+                trie.insert(p);
+            }
+            statusLabel->setText(QString("Loaded %1 Pokemon").arg(static_cast<int>(pokemons.size())));
         }
-        statusLabel->setText(QString("Loaded %1 Pokemon").arg(static_cast<int>(pokemons.size())));
     }
 
 private Q_SLOTS: // QT_NO_KEYWORDS set in CMake: use Q_SLOTS instead of 'slots'
