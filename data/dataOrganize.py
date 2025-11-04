@@ -1,9 +1,7 @@
 import json
 import os
-import math
 import re
-from collections import Counter
-from pathlib import Path
+
 
 genNum= 1
 indexRank = 0
@@ -12,6 +10,7 @@ indexUse = 0
 uses = ['ou']
 
 #meta game analysis
+topTeammates = 10
 topMoves = 10
 topItems = 5
 topSpreads = 5
@@ -66,17 +65,21 @@ while indexRank < len(ranks):
                 for pokemon in data['data']:
                     dataPoints += 1
                     writeFile.write(f"{pokemon}, Generation: {genNum}, lowestRank: {ranks[indexRank]} \n")
-                    moves = ""
-                    for move in data['data'][pokemon]['Moves']:
+
+                    movesMap = data['data'][pokemon]['Moves']
+                    writeFile.write("Moves: ")
+                    for move, pct in topKeys(movesMap, topMoves):
                         number = data['data'][pokemon]['Moves'][move]
                         stat = number/data['data'][pokemon]["Raw count"]
                         writeFile.write(move + ': ' + str(round(stat * 100,2)) + "% ")
-
                     writeFile.write("\n")
-                    for teammate in data['data'][pokemon]['Teammates']:
+
+                    teammatesMap = data['data'][pokemon]['Teammates']
+                    writeFile.write("Teammates: ")
+                    for teammate, pct in topKeys(teammatesMap, topTeammates):
                         number = data['data'][pokemon]['Teammates'][teammate]
                         stat = number/data['data'][pokemon]["Raw count"]
-                        writeFile.write(teammate + ': ' + str(round(stat * 100,2)) + "%, ")
+                        writeFile.write(teammate + ': ' + str(round(stat * 100,2)) + "% ")
                     writeFile.write("\n")
 
                     abilities = data['data'][pokemon].get('Abilities', {})

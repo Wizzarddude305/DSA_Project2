@@ -30,9 +30,9 @@ private:
 public:
     HashTable() {
         buckets = 5;
-        //Store points via seperate chaining
+        //Store points via separate chaining
         arr = new LinkedList[buckets];
-        //This hasnumber is determined by the amount of characters you're including
+        //This hash number is determined by the amount of characters you're including
         hashNumber = 36;
         loadFactor = 0.0;
         elements = 0;
@@ -52,7 +52,7 @@ public:
         }
     }
 
-    //Converts a string to deseried hash
+    //Converts a string to desired hash
     int stringHash(string key) {
         int power = key.size() - 1;
         int hash = 0;

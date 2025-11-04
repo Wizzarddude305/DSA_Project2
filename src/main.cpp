@@ -5,149 +5,273 @@
 #include <set>
 #include <string>
 #include <fstream>
+#include <regex>
+#include <cctype>
 
 using namespace std;
 
 
-HashTable createHashTable(int nodeNumber) {
-    HashTable table;
-    vector<string> names;
-    vector<Pokemon> pokemons;
 
-    string regular_name = "pokemon";
-    string name;
-    for (int i = 0; i < nodeNumber; i++) {
-        name = regular_name + to_string(i);
-        names.push_back(name);
-        map<string, float> mapping;
-        for (int j = 0; j < 10; j++) {
-            string teamName = "teammatePokemon" + to_string(j);
-            int raw = rand() % 10000 + 1;
-            float random_percent = raw/100.0f;
-            mapping[teamName] = random_percent;
-        }
+static map<string, float> parsePercentLine(const string &line, const string &separator) {
+    map<string, float> mapping;
+    if (line.rfind(separator, 0) != 0) return mapping;
+    string values = line.substr(separator.size());
 
-        Pokemon pokemon = Pokemon(name, mapping);
-        pokemons.push_back(pokemon);
-        table.insert(pokemon);
+    static const regex kv(R"(\s*([^:,]+)\s*:\s*([0-9]*\.?[0-9]+)\s*%?)");
+
+    auto begin = sregex_iterator(values.begin(), values.end(), kv);
+    auto end = sregex_iterator();
+    for (auto it = begin; it != end; it++) {
+        string key = (*it)[1].str();
+        float pct = stof((*it)[2].str());
+        mapping[key] = pct;
     }
-    return table;
+    return mapping;
 }
 
-void hashTable() {
+template <typename T>
+static void loadFromTxt(T &structure, const string &fileName, int genFilter, int floorFilter) {
+    ifstream in(fileName);
+    if (!in.is_open()) {
+        cerr << "Error: Could not open file " << fileName << endl;
+        return;
+    }
+    string line, name;
+    int genNum = 0, minRank = 0;
+    map<string, float> moves, teammates, items, spreads, tera, abilities;
+
+    auto flushPokemon = [&]() {
+        if (name.empty()) return;
+
+        auto trim = [](string s) -> string { //gets rid of spaces
+            while (!s.empty() && isspace((unsigned char)s.back())) s.pop_back();
+            while (!s.empty() && isspace((unsigned char)s.front())) s.erase(s.begin());
+            return s;
+        };
+
+        //gets rid of trailing commas
+        if (!name.empty() && name.back()==',') name.pop_back();
+        name = trim(name);
+
+        if ((genFilter == -1 || genNum == genFilter) &&
+            (minRank == floorFilter)) {
+            Pokemon mon(name, teammates, genNum, minRank);
+            mon.setTopMoves(moves);
+            mon.setTopItems(items);
+            mon.setTopSpreads(spreads);
+            mon.setTopTera(tera);
+            mon.setAbilities((abilities));
+            mon.setGenNum(genNum);
+            mon.setMinRank(minRank);
+
+            structure.insert(mon);
+            cout << "Loaded: " << name << " (" << genNum << ")" << endl;
+        }
+
+        name.clear(); genNum = 0; minRank = 0;
+        moves.clear(); teammates.clear(); items.clear(); spreads.clear(); tera.clear(); abilities.clear();
+
+    };
+
+    static const regex header(R"(^\s*([^,]+)\s*,\s*Generation:\s*(\d+)\s*,\s*lowestRank:\s*(\d+))"); //parses
+    //first pokemon line
+
+    while (getline(in, line)) {
+        smatch match;
+        if (regex_search(line, match, header)) {
+            flushPokemon();
+            name = match[1].str();
+            genNum = stoi(match[2].str());
+            minRank = stoi(match[3].str());
+            continue;
+        }
+        if (line.rfind("Moves:", 0) == 0) {moves = parsePercentLine(line, "Moves:"); continue;}
+        if (line.rfind("Teammates:", 0) == 0) {teammates = parsePercentLine(line, "Teammates:"); continue;}
+        if (line.rfind("Top Items:", 0) == 0) {items = parsePercentLine(line, "Top Items:"); continue;}
+        if (line.rfind("Top Spreads:", 0) == 0) {spreads = parsePercentLine(line, "Top Spreads:"); continue;}
+        if (line.rfind("Top Tera:", 0) == 0) {tera = parsePercentLine(line, "Top Tera:"); continue;}
+        if (line.rfind("Abilities:", 0) == 0) {abilities = parsePercentLine(line, "Abilities:");}
+    }
+    flushPokemon();
+}
+
+static string trim(string extra) {
+    auto isSpace = [](unsigned char space){return isspace(space); };
+    extra.erase(extra.begin(), find_if(extra.begin(), extra.end(),
+        [&](unsigned char space) {return !isSpace(space); }));
+    extra.erase(find_if(extra.rbegin(), extra.rend(), [&](unsigned char space)
+        {return !isSpace(space); }).base(), extra.end());
+    return extra;
+}
+
+
+void hashTable(int gen, int floor) {
     cout << "Creating hash table" << endl;
-    HashTable table = createHashTable(100000);
-    int exit = 0;
-    cout << "Would you like to search for a pokemon? (y: 1/n: 0) ";
-    cin >> exit;
-    while (exit == 1) {
+    HashTable table;
+    const string fileName = "data/cppOrganized/AllPokemon-organized.txt";
+    loadFromTxt(table, fileName, gen, floor);
+    cin.ignore(10000, '\n');
+
+    auto decideYN = [&](const string &line) ->bool {
+        cout << line;
+        string s;
+        if (!getline(cin, s)) return false;
+        s = trim(s);
+        return !s.empty() && (s[0]=='1' || s[0]=='y' || s[0]=='Y');
+    };
+
+    if (!decideYN("Would you like to search for a pokemon? (y: 1/n: 0) ")) return;
+
+    for (;;) {
         cout << "What pokemon do you want to search: ";
         string searchedName;
-        cin >> searchedName;
-
+        if (!getline(cin, searchedName)) break;
+        searchedName = trim(searchedName);
+        if (searchedName.empty()) {
+            cout << "Enter a name" << endl;
+            continue;
+        }
         if (table.search(searchedName) == true) {
             Pokemon pokemon = table.get(searchedName);
             cout << pokemon.getName() << endl;
-            map<string, float> mapping;
-            mapping = pokemon.getTeamStats();
-            for (auto it = mapping.begin(); it != mapping.end(); it++) {
+            cout << "Generation " << pokemon.getGenNum() << endl;
+            cout << "Skill Floor " << pokemon.getMinRank() << endl;
+            map<string, float> teams;
+            teams = pokemon.getTeamStats();
+            for (auto it = teams.begin(); it != teams.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> ability;
+            ability = pokemon.getAbilities();
+            for (auto it = ability.begin(); it != ability.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> moves;
+            moves = pokemon.getTopMoves();
+            for (auto it = moves.begin(); it != moves.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> items;
+            items = pokemon.getTopItems();
+            for (auto it = items.begin(); it != items.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> spreads;
+            spreads = pokemon.getTopSpreads();
+            for (auto it = spreads.begin(); it != spreads.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> tera;
+            tera = pokemon.getTopTera();
+            for (auto it = tera.begin(); it != tera.end(); it++) {
                 cout << it->first << "-> " << it->second << endl;
             }
         }else {
             cout << "No such pokemon exists" << endl;
         }
-
-        cout << "Would you like to search for a pokemon again? (y: 1/n: 0) ";
-        cin >> exit;
+        if (!decideYN("Search again with the same constraints? (y:1/n: 0) ")) break;
     }
 }
 
-TrieTree createTrieTree(int nodeNumber) {
+
+void trieTree(int gen, int floor) {
+    cout << "Creating trie tree" << endl;
     TrieTree tree;
-    vector<string> names;
-    vector<Pokemon> pokemons;
-    for (int i = 0; i < nodeNumber; i++) {
-        string name = "pokemon" + to_string(i);
-        names.push_back(name);
-        map<string, float> mapping;
-        for (int j = 0; j < 20; j++) {
-            string teamName = "teammatePokemon" + to_string(j);
-            int raw = rand() % 10000 + 1;
-            float random_percent = raw/100.0f;
-            mapping[teamName] = random_percent;
-        }
+    const string fileName = "data/cppOrganized/AllPokemon-organized.txt";
+    loadFromTxt(tree, fileName, gen, floor);
+    cin.ignore(10000, '\n');
 
-        Pokemon pokemon = Pokemon(name, mapping);
-        pokemons.push_back(pokemon);
-        tree.insert(pokemon);
-    }
-    return tree;
-}
+    auto decideYN = [&](const string &line) ->bool {
+        cout << line;
+        string s;
+        if (!getline(cin, s)) return false;
+        s = trim(s);
+        return !s.empty() && (s[0]=='1' || s[0]=='y' || s[0]=='Y');
+    };
 
-void trieTree() {
-    cout << "Creating trieTree" << endl;
-    TrieTree tree = createTrieTree(100000);
-    int exit = 0;
-    cout << "Would you like to search for a pokemon? (y: 1/n: 0) ";
-    cin >> exit;
-    while (exit == 1) {
+    if (!decideYN("Would you like to search for a pokemon? (y: 1/n: 0) ")) return;
+
+    for (;;) {
         cout << "What pokemon do you want to search: ";
         string searchedName;
-        cin >> searchedName;
-
+        if (!getline(cin, searchedName)) break;
+        searchedName = trim(searchedName);
+        if (searchedName.empty()) {
+            cout << "Enter a name" << endl;
+            continue;
+        }
         if (tree.search(searchedName) == true) {
             Pokemon pokemon = tree.get(searchedName);
             cout << pokemon.getName() << endl;
-            map<string, float> mapping;
-            mapping = pokemon.getTeamStats();
-            for (auto it = mapping.begin(); it != mapping.end(); it++) {
+            cout << "Generation " << pokemon.getGenNum() << endl;
+            cout << "Skill Floor " << pokemon.getMinRank() << endl;
+            map<string, float> teams;
+            teams = pokemon.getTeamStats();
+            for (auto it = teams.begin(); it != teams.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> ability;
+            ability = pokemon.getAbilities();
+            for (auto it = ability.begin(); it != ability.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> moves;
+            moves = pokemon.getTopMoves();
+            for (auto it = moves.begin(); it != moves.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> items;
+            items = pokemon.getTopItems();
+            for (auto it = items.begin(); it != items.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> spreads;
+            spreads = pokemon.getTopSpreads();
+            for (auto it = spreads.begin(); it != spreads.end(); it++) {
+                cout << it->first << "-> " << it->second << endl;
+            }
+            map<string, float> tera;
+            tera = pokemon.getTopTera();
+            for (auto it = tera.begin(); it != tera.end(); it++) {
                 cout << it->first << "-> " << it->second << endl;
             }
         }else {
             cout << "No such pokemon exists" << endl;
         }
-
-        cout << "Would you like to search for a pokemon again? (y: 1/n: 0) ";
-        cin >> exit;
+        if (!decideYN("Search again with the same constraints? (y:1/n: 0) ")) break;
     }
 }
 
 
 void searchAndMaking() {
-    int decision;
-    cout << "0 for Hash and 1 for tree: ";
-    cin >> decision;
-    if (decision == 0) {
-        hashTable();
-    }else if (decision == 1) {
-        trieTree();
+    int dataStructure;
+    int genFilter;
+    int floorFilter;
+    int back = 1;
+
+    while (back == 1) {
+        cout << "\nChoose data structure (0 = Hash, 1 = Trie): ";
+        cin >> dataStructure;
+        cout << "Enter Generation 1 to 9 (-1 for all): ";
+        cin >> genFilter;
+        cout << "Enter Skill Floor 0, 1500, 1630, or 1760: ";
+        cin >> floorFilter;
+
+        if (dataStructure == 0) {
+            hashTable(genFilter, floorFilter);
+        } else if (dataStructure == 1) {
+            trieTree(genFilter, floorFilter);
+        } else {
+            cout << "Invalid choice." << endl;
+        }
+
+        cout << "\nWould you like to go back and choose again? (y: 1/n: 0) ";
+        cin >> back;
     }
 }
+
 
 int main() {
-    int genNum = 1;
-    int indexRank = 0;
-    int ranks[5] = {0, 2, 3, 4, 5};
-    string uses[2] = {"ou", "uu"};
-    int indexUse = 0;
-    string dataPath = "data/cppOrganized/";
-    string fileName = dataPath + "AllPokemon-organized.txt";
-
-    cout << fileName << endl;
-    ifstream infile(fileName); // open file for reading
-
-    if (!infile) { // check if file opened successfully
-        cerr << "Error: Could not open file " << fileName << endl;
-        return 1;
-    }
-
-    cout << "File opened successfully!" << endl;
-
-    string line;
-    while (getline(infile, line)) {
-        cout << line << endl; // process the file line by line
-    }
-
-    infile.close();
+    searchAndMaking();
     return 0;
-}
+};
