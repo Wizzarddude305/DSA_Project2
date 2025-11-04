@@ -52,7 +52,6 @@ static vector<Pokemon> loadPokemonsFromFile(const string &fileName) {
     int lineNumber = 0;
     Pokemon pokemon;
     while (getline(infile, line)) {
-        size_t start = 0;
         size_t end = 0;
         vector<string> data;
         if (lineNumber % 3 == 0) {
@@ -133,7 +132,7 @@ static vector<Pokemon> loadPokemonsFromFile(const string &fileName) {
 }
 
 class MainWindow : public QMainWindow {
-    Q_OBJECT
+    Q_OBJECT // Q_OBJECT requires including the generated MOC at end of this file
 public:
     explicit MainWindow(QWidget *parent = nullptr)
             : QMainWindow(parent) {
@@ -190,7 +189,7 @@ public:
         statusLabel->setText(QString("Loaded %1 Pokemon").arg(static_cast<int>(pokemons.size())));
     }
 
-private slots:
+private Q_SLOTS: // QT_NO_KEYWORDS set in CMake: use Q_SLOTS instead of 'slots'
     void onSearch() {
         QString nameQ = nameEdit->text().trimmed();
         if (nameQ.isEmpty()) {
@@ -261,6 +260,8 @@ int main(int argc, char *argv[]) {
     w.show();
     return app.exec();
 }
+
+#include "app_ui.moc"
 
 
 

@@ -48,6 +48,7 @@ if (Qt6Widgets_FOUND)
             src/linkedLists.h
             src/app_ui.cpp)
     target_link_libraries(PokemonUI PRIVATE Qt6::Widgets)
+    # Avoid macro name collisions: prefer Q_SLOTS/Q_SIGNALS over slots/signals
     target_compile_definitions(PokemonUI PRIVATE QT_NO_KEYWORDS)
 endif()
 
