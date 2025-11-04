@@ -1,0 +1,793 @@
+{
+  "info": {
+    "metagame": "gen1uu",
+    "cutoff": 0,
+    "cutoff deviation": 0,
+    "team type": null,
+    "number of battles": 3
+  },
+  "data": {
+    "Haunter": {
+      "Raw count": 6,
+      "Viability Ceiling": [3, 71, 71, 71],
+      "Abilities": {
+        "noability": 6
+      },
+      "Items": {
+        "nothing": 6
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 6
+      },
+      "Moves": {
+        "thunderbolt": 6,
+        "nightshade": 6,
+        "hypnosis": 4,
+        "confuseray": 3,
+        "explosion": 3,
+        "rest": 2
+      },
+      "Tera Types": {
+        "nothing": 6
+      },
+      "Happiness": {
+        "255": 6
+      },
+      "Teammates": {
+        "Moltres": 1,
+        "Hypno": 2,
+        "Lapras": 1,
+        "Persian": 1,
+        "Dodrio": 1,
+        "Kadabra": 2,
+        "Articuno": 3,
+        "Clefable": 2,
+        "Ninetales": 2,
+        "Golem": 2,
+        "Slowbro": 1,
+        "Dragonite": 1,
+        "Dugtrio": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.6666667
+    },
+    "Golem": {
+      "Raw count": 5,
+      "Viability Ceiling": [4, 71, 71, 71],
+      "Abilities": {
+        "noability": 5
+      },
+      "Items": {
+        "nothing": 5
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 5
+      },
+      "Moves": {
+        "earthquake": 5,
+        "rockslide": 3,
+        "substitute": 3,
+        "explosion": 3,
+        "bodyslam": 2,
+        "toxic": 2,
+        "rest": 2
+      },
+      "Tera Types": {
+        "nothing": 5
+      },
+      "Happiness": {
+        "255": 5
+      },
+      "Teammates": {
+        "Dodrio": 1,
+        "Tangela": 1,
+        "Magneton": 1,
+        "Gyarados": 1,
+        "Lapras": 1,
+        "Haunter": 2,
+        "Kadabra": 2,
+        "Articuno": 2,
+        "Clefable": 2,
+        "Ninetales": 2
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.5
+    },
+    "Lapras": {
+      "Raw count": 7,
+      "Viability Ceiling": [6, 83, 83, 71],
+      "Abilities": {
+        "noability": 7
+      },
+      "Items": {
+        "nothing": 7
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 7
+      },
+      "Moves": {
+        "blizzard": 7,
+        "thunderbolt": 7,
+        "bodyslam": 3,
+        "confuseray": 2,
+        "surf": 1,
+        "sing": 5,
+        "rest": 3
+      },
+      "Tera Types": {
+        "nothing": 7
+      },
+      "Happiness": {
+        "255": 7
+      },
+      "Teammates": {
+        "Dodrio": 2,
+        "Tangela": 1,
+        "Magneton": 1,
+        "Golem": 1,
+        "Gyarados": 1,
+        "Moltres": 1,
+        "Hypno": 2,
+        "Persian": 1,
+        "Haunter": 1,
+        "Kangaskhan": 1,
+        "Slowbro": 1,
+        "Raichu": 1,
+        "Electabuzz": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.5
+    },
+    "Hypno": {
+      "Raw count": 6,
+      "Viability Ceiling": [4, 83, 83, 83],
+      "Abilities": {
+        "noability": 6
+      },
+      "Items": {
+        "nothing": 6
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 6
+      },
+      "Moves": {
+        "psychic": 6,
+        "hypnosis": 5,
+        "seismictoss": 3,
+        "thunderwave": 6,
+        "rest": 3,
+        "bodyslam": 1
+      },
+      "Tera Types": {
+        "nothing": 6
+      },
+      "Happiness": {
+        "255": 6
+      },
+      "Teammates": {
+        "Moltres": 1,
+        "Lapras": 2,
+        "Persian": 1,
+        "Dodrio": 1,
+        "Haunter": 2,
+        "Slowbro": 2,
+        "Dragonite": 1,
+        "Articuno": 1,
+        "Dugtrio": 1,
+        "Kangaskhan": 1,
+        "Raichu": 1,
+        "Electabuzz": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.5
+    },
+    "Articuno": {
+      "Raw count": 3,
+      "Viability Ceiling": [2, 54, 54, 54],
+      "Abilities": {
+        "noability": 3
+      },
+      "Items": {
+        "nothing": 3
+      },
+      "Spreads": {
+        "Serious:252/252/224/112/112/252": 2,
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "agility": 3,
+        "icebeam": 2,
+        "blizzard": 3,
+        "reflect": 2,
+        "doubleedge": 1,
+        "hyperbeam": 1
+      },
+      "Tera Types": {
+        "nothing": 3
+      },
+      "Happiness": {
+        "255": 3
+      },
+      "Teammates": {
+        "Haunter": 3,
+        "Kadabra": 2,
+        "Clefable": 2,
+        "Ninetales": 2,
+        "Golem": 2,
+        "Slowbro": 1,
+        "Hypno": 1,
+        "Dragonite": 1,
+        "Dugtrio": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.5
+    },
+    "Dodrio": {
+      "Raw count": 2,
+      "Viability Ceiling": [2, 64, 64, 64],
+      "Abilities": {
+        "noability": 2
+      },
+      "Items": {
+        "nothing": 2
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 2
+      },
+      "Moves": {
+        "bodyslam": 2,
+        "hyperbeam": 2,
+        "drillpeck": 2,
+        "agility": 2
+      },
+      "Tera Types": {
+        "nothing": 2
+      },
+      "Happiness": {
+        "255": 2
+      },
+      "Teammates": {
+        "Tangela": 1,
+        "Magneton": 1,
+        "Golem": 1,
+        "Gyarados": 1,
+        "Lapras": 2,
+        "Moltres": 1,
+        "Hypno": 1,
+        "Persian": 1,
+        "Haunter": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.3333333
+    },
+    "Kadabra": {
+      "Raw count": 3,
+      "Viability Ceiling": [2, 71, 71, 71],
+      "Abilities": {
+        "noability": 3
+      },
+      "Items": {
+        "nothing": 3
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 3
+      },
+      "Moves": {
+        "psychic": 1,
+        "seismictoss": 3,
+        "thunderwave": 3,
+        "recover": 3,
+        "reflect": 2
+      },
+      "Tera Types": {
+        "nothing": 3
+      },
+      "Happiness": {
+        "255": 3
+      },
+      "Teammates": {
+        "Haunter": 2,
+        "Articuno": 2,
+        "Clefable": 2,
+        "Ninetales": 2,
+        "Golem": 2
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.3333333
+    },
+    "Clefable": {
+      "Raw count": 2,
+      "Viability Ceiling": [1, 45, 45, 45],
+      "Abilities": {
+        "noability": 2
+      },
+      "Items": {
+        "nothing": 2
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 2
+      },
+      "Moves": {
+        "solarbeam": 2,
+        "rest": 2,
+        "sing": 2,
+        "bodyslam": 2
+      },
+      "Tera Types": {
+        "nothing": 2
+      },
+      "Happiness": {
+        "255": 2
+      },
+      "Teammates": {
+        "Haunter": 2,
+        "Kadabra": 2,
+        "Articuno": 2,
+        "Ninetales": 2,
+        "Golem": 2
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.3333333
+    },
+    "Ninetales": {
+      "Raw count": 3,
+      "Viability Ceiling": [2, 64, 64, 64],
+      "Abilities": {
+        "noability": 3
+      },
+      "Items": {
+        "nothing": 3
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 3
+      },
+      "Moves": {
+        "confuseray": 3,
+        "flamethrower": 2,
+        "reflect": 2,
+        "bodyslam": 3,
+        "fireblast": 1,
+        "hyperbeam": 1
+      },
+      "Tera Types": {
+        "nothing": 3
+      },
+      "Happiness": {
+        "255": 3
+      },
+      "Teammates": {
+        "Haunter": 2,
+        "Kadabra": 2,
+        "Articuno": 2,
+        "Clefable": 2,
+        "Golem": 2
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.3333333
+    },
+    "Slowbro": {
+      "Raw count": 4,
+      "Viability Ceiling": [4, 83, 83, 83],
+      "Abilities": {
+        "noability": 4
+      },
+      "Items": {
+        "nothing": 4
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 4
+      },
+      "Moves": {
+        "amnesia": 4,
+        "rest": 4,
+        "psychic": 3,
+        "thunderwave": 4,
+        "surf": 1
+      },
+      "Tera Types": {
+        "nothing": 4
+      },
+      "Happiness": {
+        "255": 4
+      },
+      "Teammates": {
+        "Haunter": 1,
+        "Hypno": 2,
+        "Dragonite": 1,
+        "Articuno": 1,
+        "Dugtrio": 1,
+        "Kangaskhan": 1,
+        "Raichu": 1,
+        "Electabuzz": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.3333333
+    },
+    "Tangela": {
+      "Raw count": 1,
+      "Viability Ceiling": [1, 64, 64, 64],
+      "Abilities": {
+        "noability": 1
+      },
+      "Items": {
+        "nothing": 1
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "stunspore": 1,
+        "sleeppowder": 1,
+        "megadrain": 1,
+        "hyperbeam": 1
+      },
+      "Tera Types": {
+        "nothing": 1
+      },
+      "Happiness": {
+        "255": 1
+      },
+      "Teammates": {
+        "Dodrio": 1,
+        "Magneton": 1,
+        "Golem": 1,
+        "Gyarados": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Magneton": {
+      "Raw count": 1,
+      "Viability Ceiling": [1, 64, 64, 64],
+      "Abilities": {
+        "noability": 1
+      },
+      "Items": {
+        "nothing": 1
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "thunderbolt": 1,
+        "rest": 1,
+        "doubleedge": 1,
+        "thunderwave": 1
+      },
+      "Tera Types": {
+        "nothing": 1
+      },
+      "Happiness": {
+        "255": 1
+      },
+      "Teammates": {
+        "Dodrio": 1,
+        "Tangela": 1,
+        "Golem": 1,
+        "Gyarados": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Gyarados": {
+      "Raw count": 2,
+      "Viability Ceiling": [2, 71, 71, 71],
+      "Abilities": {
+        "noability": 2
+      },
+      "Items": {
+        "nothing": 2
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 2
+      },
+      "Moves": {
+        "hyperbeam": 2,
+        "surf": 1,
+        "thunderbolt": 1,
+        "bodyslam": 2,
+        "blizzard": 1,
+        "hydropump": 1
+      },
+      "Tera Types": {
+        "nothing": 2
+      },
+      "Happiness": {
+        "255": 2
+      },
+      "Teammates": {
+        "Dodrio": 1,
+        "Tangela": 1,
+        "Magneton": 1,
+        "Golem": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Moltres": {
+      "Raw count": 1,
+      "Viability Ceiling": [1, 52, 52, 52],
+      "Abilities": {
+        "noability": 1
+      },
+      "Items": {
+        "nothing": 1
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "fireblast": 1,
+        "doubleedge": 1,
+        "hyperbeam": 1,
+        "agility": 1
+      },
+      "Tera Types": {
+        "nothing": 1
+      },
+      "Happiness": {
+        "255": 1
+      },
+      "Teammates": {
+        "Hypno": 1,
+        "Lapras": 1,
+        "Persian": 1,
+        "Dodrio": 1,
+        "Haunter": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Persian": {
+      "Raw count": 1,
+      "Viability Ceiling": [1, 52, 52, 52],
+      "Abilities": {
+        "noability": 1
+      },
+      "Items": {
+        "nothing": 1
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "slash": 1,
+        "bodyslam": 1,
+        "thunderbolt": 1,
+        "bubblebeam": 1
+      },
+      "Tera Types": {
+        "nothing": 1
+      },
+      "Happiness": {
+        "255": 1
+      },
+      "Teammates": {
+        "Moltres": 1,
+        "Hypno": 1,
+        "Lapras": 1,
+        "Dodrio": 1,
+        "Haunter": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Dragonite": {
+      "Raw count": 1,
+      "Viability Ceiling": [1, 54, 54, 54],
+      "Abilities": {
+        "noability": 1
+      },
+      "Items": {
+        "nothing": 1
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "hyperbeam": 1,
+        "blizzard": 1,
+        "thunderbolt": 1,
+        "thunderwave": 1
+      },
+      "Tera Types": {
+        "nothing": 1
+      },
+      "Happiness": {
+        "255": 1
+      },
+      "Teammates": {
+        "Haunter": 1,
+        "Slowbro": 1,
+        "Hypno": 1,
+        "Articuno": 1,
+        "Dugtrio": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Dugtrio": {
+      "Raw count": 1,
+      "Viability Ceiling": [1, 54, 54, 54],
+      "Abilities": {
+        "noability": 1
+      },
+      "Items": {
+        "nothing": 1
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 1
+      },
+      "Moves": {
+        "earthquake": 1,
+        "rockslide": 1,
+        "slash": 1,
+        "substitute": 1
+      },
+      "Tera Types": {
+        "nothing": 1
+      },
+      "Happiness": {
+        "255": 1
+      },
+      "Teammates": {
+        "Haunter": 1,
+        "Slowbro": 1,
+        "Hypno": 1,
+        "Dragonite": 1,
+        "Articuno": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Kangaskhan": {
+      "Raw count": 4,
+      "Viability Ceiling": [4, 83, 83, 83],
+      "Abilities": {
+        "noability": 4
+      },
+      "Items": {
+        "nothing": 4
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 4
+      },
+      "Moves": {
+        "earthquake": 4,
+        "bodyslam": 4,
+        "hyperbeam": 4,
+        "rockslide": 1,
+        "blizzard": 2,
+        "surf": 1
+      },
+      "Tera Types": {
+        "nothing": 4
+      },
+      "Happiness": {
+        "255": 4
+      },
+      "Teammates": {
+        "Hypno": 1,
+        "Slowbro": 1,
+        "Raichu": 1,
+        "Electabuzz": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Raichu": {
+      "Raw count": 3,
+      "Viability Ceiling": [3, 83, 83, 83],
+      "Abilities": {
+        "noability": 3
+      },
+      "Items": {
+        "nothing": 3
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 3
+      },
+      "Moves": {
+        "thunderbolt": 3,
+        "hyperbeam": 3,
+        "surf": 3,
+        "thunderwave": 3
+      },
+      "Tera Types": {
+        "nothing": 3
+      },
+      "Happiness": {
+        "255": 3
+      },
+      "Teammates": {
+        "Kangaskhan": 1,
+        "Hypno": 1,
+        "Slowbro": 1,
+        "Electabuzz": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    },
+    "Electabuzz": {
+      "Raw count": 4,
+      "Viability Ceiling": [4, 83, 83, 83],
+      "Abilities": {
+        "noability": 4
+      },
+      "Items": {
+        "nothing": 4
+      },
+      "Spreads": {
+        "Serious:252/252/252/252/252/252": 4
+      },
+      "Moves": {
+        "thunderbolt": 4,
+        "psychic": 4,
+        "seismictoss": 1,
+        "thunderwave": 4,
+        "bodyslam": 3
+      },
+      "Tera Types": {
+        "nothing": 4
+      },
+      "Happiness": {
+        "255": 4
+      },
+      "Teammates": {
+        "Kangaskhan": 1,
+        "Hypno": 1,
+        "Slowbro": 1,
+        "Raichu": 1,
+        "Lapras": 1
+      },
+      "Checks and Counters": {
+
+      },
+      "usage": 0.1666667
+    }
+  }
+}

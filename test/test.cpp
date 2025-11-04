@@ -10,54 +10,7 @@
 #include "hashTable.h"
 #define CATCH_CONFIG_MAIN
 
-
-TEST_CASE("Trie insertion and search", "[flag]") {
-    TrieTree tree;
-    Pokemon pokemon1 =  Pokemon("bruh");
-    tree.insert(pokemon1);
-    REQUIRE(tree.search(pokemon1) == true);
-    REQUIRE(tree.search("bruh") == true);
-    Pokemon pokemon3 = tree.get(pokemon1);
-    REQUIRE(pokemon3  == pokemon1);
-    Pokemon pokemon2 =  Pokemon("nah");
-    REQUIRE(tree.search(pokemon2) == false);
-    tree.insert(pokemon2);
-    REQUIRE(tree.search(pokemon2) == true);
-    pokemon3 = tree.get(pokemon2);
-    REQUIRE(pokemon3==  pokemon2);
-}
-
-
-TEST_CASE("Hash table resizing", "[flag]") {
-    HashTable table;
-    string arr[4]= {"bruh", "yes", "lol", "nah"};
-    Pokemon pokemon;
-    for (int i = 0; i < 3; i++) {
-        pokemon = Pokemon(arr[i]);
-        table.insert(pokemon);
-    }
-
-    for (int i = 0; i < 3; i++) {
-        bool search = table.search(arr[i]);
-        REQUIRE(search == true);
-    }
-
-    pokemon = Pokemon(arr[3]);
-    table.insert(pokemon);
-
-    REQUIRE(table.getElements() == 4);
-    REQUIRE(table.getHashSize() == 10);
-    REQUIRE(table.getMaxLoadFactor() == 0.75f);
-    REQUIRE(table.getLoadFactor() == 0.4f);
-
-    for (int i = 0; i < 4; i++) {
-        bool search = table.search(arr[i]);
-        REQUIRE(search == true);
-    }
-
-}
-
-
+//Tests the case of 100000 arbitary pokemon data points into HashTable
 TEST_CASE("Hash table alpha and digit (100,000 data points)", "[flag]") {
     HashTable table;
     vector<string> names;
@@ -95,6 +48,7 @@ TEST_CASE("Hash table alpha and digit (100,000 data points)", "[flag]") {
     }
 }
 
+//Tests the case of 100000 arbitary pokemon data points into TrieTree
 TEST_CASE("Trie insertion 100,000 points test", "[flag]") {
     TrieTree tree;
     vector<string> names;

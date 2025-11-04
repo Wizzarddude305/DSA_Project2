@@ -7,27 +7,43 @@ ranks = [0, 1500, 1630, 1760]
 indexUse = 0
 uses = ['ou', 'uu']
 fileName = f"gen{genNum}{uses[indexUse]}-{ranks[indexRank]}"
-path = f"raw_files/{fileName}.json"
+dir = "raw_files"
 dataPoints = 0
-while os.path.exists(path):
-    with open(path, "r") as file:
+
+#deleting all data in file before writing new
+with open("cppOrganized/AllPokemon-organized.txt", "w"):
+    pass
+
+#This code organizes the data from the raw json files into readable txt for the main file
+for filename in os.listdir(dir):
+    print(filename)
+    with open(dir + '/' + filename, "r") as file:
         data = json.load(file)
-        with open(f"cppOrganized/AllPokemon-organized.txt", "a") as writeFile:
+        with open("cppOrganized/AllPokemon-organized.txt", "a") as writeFile:
             for pokemon in data['data']:
                 dataPoints += 1
-                writeFile.write(f"{pokemon}, Generation: {genNum}, lowestRank: {ranks[indexRank]} \n")
+                splitFile = filename.split("-")
+                print(splitFile)
+                writeFile.write(f"{pokemon}, Generation:{splitFile[0][3]}, lowestRank:{splitFile[1][0]} \n")
                 moves = ""
                 for move in data['data'][pokemon]['Moves']:
                     number = data['data'][pokemon]['Moves'][move]
                     stat = number/data['data'][pokemon]["Raw count"]
-                    writeFile.write(move + ': ' + str(round(stat * 100,2)) + "% ")
+                    if move != list(data['data'][pokemon]['Moves'].keys())[-1]:
+                        if round(stat * 100,2) > 0:
+                            writeFile.write(move + ': ' + str(round(stat * 100,2)) + "%,")
+                    else:
+                        writeFile.write(move + ': ' + str(round(stat * 100,2)) + "%\n")
 
-                writeFile.write("\n")
                 for teammate in data['data'][pokemon]['Teammates']:
                     number = data['data'][pokemon]['Teammates'][teammate]
                     stat = number/data['data'][pokemon]["Raw count"]
-                    writeFile.write(teammate + ': ' + str(round(stat * 100,2)) + "%, ")
-                writeFile.write("\n")
+                    if teammate != list(data['data'][pokemon]['Teammates'].keys())[-1]:
+                        if round(stat * 100,2) > 0:
+                            writeFile.write(teammate + ': ' + str(round(stat * 100,2)) + "%,")
+                    else:
+                        writeFile.write(teammate + ': ' + str(round(stat * 100,2)) + "%\n")
+
     genNum += 1
     fileName = f"gen{genNum}{uses[indexUse]}-{ranks[indexRank]}"
     path = f"raw_files/{fileName}.json"
