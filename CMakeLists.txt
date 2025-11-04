@@ -33,3 +33,22 @@ add_executable(Tests
 target_link_libraries(Tests PRIVATE Catch2::Catch2WithMain) #link catch to test.cpp file
 # the name here must match that of your testing executable (the one that has test.cpp)
 
+## Qt UI application
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+
+find_package(Qt6 COMPONENTS Widgets QUIET)
+if (Qt6Widgets_FOUND)
+    add_executable(PokemonUI
+            src/app_ui.cpp
+            src/trieTree.h
+            src/hashTable.h
+            src/pokemon.h
+            src/linkedLists.h
+            src/app_ui.cpp)
+    target_link_libraries(PokemonUI PRIVATE Qt6::Widgets)
+    # Avoid macro name collisions: prefer Q_SLOTS/Q_SIGNALS over slots/signals
+    target_compile_definitions(PokemonUI PRIVATE QT_NO_KEYWORDS)
+endif()
+

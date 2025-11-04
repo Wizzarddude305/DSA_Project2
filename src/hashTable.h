@@ -53,10 +53,11 @@ public:
     }
 
     //Converts a string to deseried hash
+    // Use size_t for string indexing to avoid -Wsign-compare with key.size()
     int stringHash(string key) {
-        int power = key.size() - 1;
+        int power = static_cast<int>(key.size()) - 1;
         int hash = 0;
-        for (int i = 0; i < key.size(); i++) {
+        for (size_t i = 0; i < key.size(); i++) {
             hash += digitAndAlpha(key[i], power);
             power--;
         }
