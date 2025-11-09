@@ -24,6 +24,26 @@
 
 using namespace std;
 
+Pokemon randomPokemon(int i) {
+    string name = "pokemon" + to_string(i);
+    map<string, float> teamMapping;
+    map<string, float> moveMapping;
+    for (int j = 0; j < 20; j++) {
+        string teamName = "teammatePokemon" + to_string(j);
+        int raw = rand() % 10000 + 1;
+        float random_percent = raw/100.0f;
+        teamMapping[teamName] = random_percent;
+        string moveName = "move" + to_string(j);
+        raw = rand() % 10000 + 1;
+        random_percent = raw/100.0f;
+        moveMapping[moveName] = random_percent;
+    }
+
+
+    Pokemon pokemon = Pokemon(name, teamMapping, moveMapping);
+    return pokemon;
+}
+
 static vector<string> splitByComma(const string &line) {
     vector<string> parts;
     size_t start = 0, end = 0;
@@ -209,11 +229,19 @@ public:
                 .arg(QDir::currentPath()));
             statusLabel->setText("Error: No data loaded");
         } else {
+            //This inserts 100000 data points of both random and real pokemon from our organized data
             for (auto &p : pokemons) {
                 tableHash.insert(p);
                 trie.insert(p);
             }
-            statusLabel->setText(QString("Loaded %1 Pokemon").arg(static_cast<int>(pokemons.size())));
+            int expectedSize = 100000;
+            int remaining = expectedSize - pokemons.size();
+            for (int i = 0; i < remaining; i++) {
+                Pokemon p = randomPokemon(i);
+                tableHash.insert(p);
+                trie.insert(p);
+            }
+            statusLabel->setText(QString("Loaded %1 Pokemon ").arg(static_cast<int>(expectedSize)));
         }
     }
 

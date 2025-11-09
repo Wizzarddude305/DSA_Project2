@@ -22,7 +22,7 @@ public:
         head = nullptr;
         tail = nullptr;
     }
-
+    //This is simply implemented to quickly add an item to the end of the linked list for hash table chaining
     void append(Pokemon &p) {
         if (head == nullptr) {
             head = new linkedNode(p);
@@ -33,6 +33,7 @@ public:
         }
     }
 
+    //A simple O(n) function to se if an item is in the seperate chain for a pokemon object
     bool exists(const Pokemon &p) {
         linkedNode* current = head;
         while (current != nullptr) {
@@ -44,6 +45,7 @@ public:
         return false;
     }
 
+    //This is the same as the previous function just for the name
     bool nameSearch(string name) {
         linkedNode* current = head;
         while (current != nullptr) {
@@ -55,6 +57,7 @@ public:
         return false;
     }
 
+    //A getter for a specific linked Node O(n) time
     Pokemon* get(string name) {
         linkedNode* current = head;
         while (current != nullptr) {
@@ -66,6 +69,7 @@ public:
         return nullptr;
     }
 
+    //This is for the hashtable to identify if there is an established list or not
     bool isHead() {
         if (head) {
             return true;

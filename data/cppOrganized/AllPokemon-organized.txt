@@ -3439,6 +3439,66 @@ Mr. Mime: 12.5%,Ampharos: 12.5%,Gallade: 12.5%,Honchkrow: 12.5%,Ferrothorn: 12.5
 Wigglytuff, Generation:5, lowestRank:0 
 fireblast: 20.0%,hyperbeam: 20.0%,thunder: 20.0%,grassknot: 20.0%,protect: 30.0%,substitute: 30.0%,rest: 30.0%,drainpunch: 30.0%,flamethrower: 50.0%,thunderwave: 10.0%,icebeam: 50.0%,workup: 50.0%,thunderbolt: 40.0%
 Stoutland: 20.0%,Vileplume: 30.0%,Cobalion: 20.0%,Quagsire: 20.0%,Raichu: 20.0%,Nidoking: 30.0%,Nidoqueen: 30.0%,Musharna: 30.0%,Clefable: 30.0%,Umbreon: 30.0%,Phione: 10.0%,Bellossom: 10.0%,Relicanth: 10.0%,Blissey: 30.0%,Meloetta: 20.0%,Lopunny: 20.0%,Clefairy: 20.0%,Gothitelle: 20.0%
+Haunter, Generation:1, lowestRank:0 
+thunderbolt: 100.0%,nightshade: 100.0%,hypnosis: 66.67%,confuseray: 50.0%,explosion: 50.0%,rest: 33.33%
+Moltres: 16.67%,Hypno: 33.33%,Lapras: 16.67%,Persian: 16.67%,Dodrio: 16.67%,Kadabra: 33.33%,Articuno: 50.0%,Clefable: 33.33%,Ninetales: 33.33%,Golem: 33.33%,Slowbro: 16.67%,Dragonite: 16.67%,Dugtrio: 16.67%
+Golem, Generation:1, lowestRank:0 
+earthquake: 100.0%,rockslide: 60.0%,substitute: 60.0%,explosion: 60.0%,bodyslam: 40.0%,toxic: 40.0%,rest: 40.0%
+Dodrio: 20.0%,Tangela: 20.0%,Magneton: 20.0%,Gyarados: 20.0%,Lapras: 20.0%,Haunter: 40.0%,Kadabra: 40.0%,Articuno: 40.0%,Clefable: 40.0%,Ninetales: 40.0%
+Lapras, Generation:1, lowestRank:0 
+blizzard: 100.0%,thunderbolt: 100.0%,bodyslam: 42.86%,confuseray: 28.57%,surf: 14.29%,sing: 71.43%,rest: 42.86%
+Dodrio: 28.57%,Tangela: 14.29%,Magneton: 14.29%,Golem: 14.29%,Gyarados: 14.29%,Moltres: 14.29%,Hypno: 28.57%,Persian: 14.29%,Haunter: 14.29%,Kangaskhan: 14.29%,Slowbro: 14.29%,Raichu: 14.29%,Electabuzz: 14.29%
+Hypno, Generation:1, lowestRank:0 
+psychic: 100.0%,hypnosis: 83.33%,seismictoss: 50.0%,thunderwave: 100.0%,rest: 50.0%,bodyslam: 16.67%
+Moltres: 16.67%,Lapras: 33.33%,Persian: 16.67%,Dodrio: 16.67%,Haunter: 33.33%,Slowbro: 33.33%,Dragonite: 16.67%,Articuno: 16.67%,Dugtrio: 16.67%,Kangaskhan: 16.67%,Raichu: 16.67%,Electabuzz: 16.67%
+Articuno, Generation:1, lowestRank:0 
+agility: 100.0%,icebeam: 66.67%,blizzard: 100.0%,reflect: 66.67%,doubleedge: 33.33%,hyperbeam: 33.33%
+Haunter: 100.0%,Kadabra: 66.67%,Clefable: 66.67%,Ninetales: 66.67%,Golem: 66.67%,Slowbro: 33.33%,Hypno: 33.33%,Dragonite: 33.33%,Dugtrio: 33.33%
+Dodrio, Generation:1, lowestRank:0 
+bodyslam: 100.0%,hyperbeam: 100.0%,drillpeck: 100.0%,agility: 100.0%
+Tangela: 50.0%,Magneton: 50.0%,Golem: 50.0%,Gyarados: 50.0%,Lapras: 100.0%,Moltres: 50.0%,Hypno: 50.0%,Persian: 50.0%,Haunter: 50.0%
+Kadabra, Generation:1, lowestRank:0 
+psychic: 33.33%,seismictoss: 100.0%,thunderwave: 100.0%,recover: 100.0%,reflect: 66.67%
+Haunter: 66.67%,Articuno: 66.67%,Clefable: 66.67%,Ninetales: 66.67%,Golem: 66.67%
+Clefable, Generation:1, lowestRank:0 
+solarbeam: 100.0%,rest: 100.0%,sing: 100.0%,bodyslam: 100.0%
+Haunter: 100.0%,Kadabra: 100.0%,Articuno: 100.0%,Ninetales: 100.0%,Golem: 100.0%
+Ninetales, Generation:1, lowestRank:0 
+confuseray: 100.0%,flamethrower: 66.67%,reflect: 66.67%,bodyslam: 100.0%,fireblast: 33.33%,hyperbeam: 33.33%
+Haunter: 66.67%,Kadabra: 66.67%,Articuno: 66.67%,Clefable: 66.67%,Golem: 66.67%
+Slowbro, Generation:1, lowestRank:0 
+amnesia: 100.0%,rest: 100.0%,psychic: 75.0%,thunderwave: 100.0%,surf: 25.0%
+Haunter: 25.0%,Hypno: 50.0%,Dragonite: 25.0%,Articuno: 25.0%,Dugtrio: 25.0%,Kangaskhan: 25.0%,Raichu: 25.0%,Electabuzz: 25.0%,Lapras: 25.0%
+Tangela, Generation:1, lowestRank:0 
+stunspore: 100.0%,sleeppowder: 100.0%,megadrain: 100.0%,hyperbeam: 100.0%
+Dodrio: 100.0%,Magneton: 100.0%,Golem: 100.0%,Gyarados: 100.0%,Lapras: 100.0%
+Magneton, Generation:1, lowestRank:0 
+thunderbolt: 100.0%,rest: 100.0%,doubleedge: 100.0%,thunderwave: 100.0%
+Dodrio: 100.0%,Tangela: 100.0%,Golem: 100.0%,Gyarados: 100.0%,Lapras: 100.0%
+Gyarados, Generation:1, lowestRank:0 
+hyperbeam: 100.0%,surf: 50.0%,thunderbolt: 50.0%,bodyslam: 100.0%,blizzard: 50.0%,hydropump: 50.0%
+Dodrio: 50.0%,Tangela: 50.0%,Magneton: 50.0%,Golem: 50.0%,Lapras: 50.0%
+Moltres, Generation:1, lowestRank:0 
+fireblast: 100.0%,doubleedge: 100.0%,hyperbeam: 100.0%,agility: 100.0%
+Hypno: 100.0%,Lapras: 100.0%,Persian: 100.0%,Dodrio: 100.0%,Haunter: 100.0%
+Persian, Generation:1, lowestRank:0 
+slash: 100.0%,bodyslam: 100.0%,thunderbolt: 100.0%,bubblebeam: 100.0%
+Moltres: 100.0%,Hypno: 100.0%,Lapras: 100.0%,Dodrio: 100.0%,Haunter: 100.0%
+Dragonite, Generation:1, lowestRank:0 
+hyperbeam: 100.0%,blizzard: 100.0%,thunderbolt: 100.0%,thunderwave: 100.0%
+Haunter: 100.0%,Slowbro: 100.0%,Hypno: 100.0%,Articuno: 100.0%,Dugtrio: 100.0%
+Dugtrio, Generation:1, lowestRank:0 
+earthquake: 100.0%,rockslide: 100.0%,slash: 100.0%,substitute: 100.0%
+Haunter: 100.0%,Slowbro: 100.0%,Hypno: 100.0%,Dragonite: 100.0%,Articuno: 100.0%
+Kangaskhan, Generation:1, lowestRank:0 
+earthquake: 100.0%,bodyslam: 100.0%,hyperbeam: 100.0%,rockslide: 25.0%,blizzard: 50.0%,surf: 25.0%
+Hypno: 25.0%,Slowbro: 25.0%,Raichu: 25.0%,Electabuzz: 25.0%,Lapras: 25.0%
+Raichu, Generation:1, lowestRank:0 
+thunderbolt: 100.0%,hyperbeam: 100.0%,surf: 100.0%,thunderwave: 100.0%
+Kangaskhan: 33.33%,Hypno: 33.33%,Slowbro: 33.33%,Electabuzz: 33.33%,Lapras: 33.33%
+Electabuzz, Generation:1, lowestRank:0 
+thunderbolt: 100.0%,psychic: 100.0%,seismictoss: 25.0%,thunderwave: 100.0%,bodyslam: 75.0%
+Kangaskhan: 25.0%,Hypno: 25.0%,Slowbro: 25.0%,Raichu: 25.0%,Lapras: 25.0%
 Tyranitar, Generation:3, lowestRank:0 
 crunch: 23.19%,earthquake: 67.23%,icebeam: 13.74%,pursuit: 22.28%,rockslide: 71.28%,hiddenpowerbug: 42.46%,focuspunch: 28.67%,hiddenpowerghost: 0.42%,return: 0.04%,hiddenpowergrass: 16.53%,fireblast: 21.07%,brickbreak: 16.49%,dragondance: 39.11%,doubleedge: 8.03%,taunt: 3.15%,roar: 6.56%,counter: 1.69%,rest: 0.3%,substitute: 3.89%,bodyslam: 0.37%,toxic: 1.84%,protect: 0.66%,flamethrower: 5.36%,thunderbolt: 0.83%,thunder: 0.89%,hiddenpowerflying: 0.19%,thunderwave: 1.41%,ancientpower: 0.91%,raindance: 0.01%,endure: 0.1%,hyperbeam: 0.18%,sunnyday: 0.07%,hiddenpowerrock: 0.31%,dragonclaw: 0.05%,surf: 0.08%,aerialace: 0.04%,blizzard: 0.12%,hiddenpowerpoison: 0.01%,irontail: 0.01%,facade: 0.15%,rocktomb: 0.02%,sleeptalk: 0.03%,curse: 0.05%,hiddenpowerdark: 0.01%,hiddenpowerfighting: 0.01%,firepunch: 0.02%,seismictoss: 0.03%,hiddenpowerdragon: 0.01%,: 0.01%,bite: 0.02%,hiddenpowerelectric: 0.02%,hiddenpowerice: 0.01%,outrage: 0.02%,hiddenpowerpsychic: 0.01%,rocksmash: 0.0%
 Skarmory: 47.41%,Moltres: 5.81%,Jirachi: 13.47%,Gengar: 35.51%,Flygon: 6.42%,Zapdos: 24.79%,Roselia: 0.32%,Swampert: 49.9%,Metagross: 32.87%,Magneton: 12.49%,Blissey: 31.79%,Salamence: 27.98%,Snorlax: 11.14%,Celebi: 21.5%,Dugtrio: 10.9%,Forretress: 11.39%,Breloom: 4.14%,Charizard: 8.29%,Aerodactyl: 25.59%,Slaking: 0.56%,Venusaur: 2.15%,Starmie: 20.52%,Smeargle: 1.97%,Glalie: 1.31%,Claydol: 9.43%,Suicune: 8.17%,Milotic: 3.9%,Regice: 1.26%,Mantine: 0.09%,Scizor: 0.86%,Marowak: 0.58%,Machamp: 1.29%,Registeel: 3.63%,Solrock: 0.07%,Medicham: 2.2%,Mightyena: 0.01%,Gyarados: 4.35%,Slowbro: 0.14%,Jolteon: 9.7%,Cloyster: 3.15%,Dragonite: 0.81%,Jumpluff: 0.18%,Miltank: 0.15%,Slowking: 0.04%,Raikou: 1.92%,Porygon2: 1.06%,Kabutops: 0.1%,Alakazam: 1.18%,Umbreon: 0.74%,Steelix: 0.65%,Heracross: 3.07%,Quagsire: 0.49%,Articuno: 0.35%,Hariyama: 2.4%,Weezing: 0.67%,Crobat: 0.07%,Vaporeon: 1.09%,Swellow: 0.08%,Feraligatr: 0.04%,Dusclops: 0.55%,Magmar: 0.15%,Sableye: 0.53%,Blaziken: 1.33%,Poliwrath: 0.11%,Golem: 0.03%,Dodrio: 0.2%,Armaldo: 0.33%,Banette: 0.83%,Stantler: 0.01%,Kingdra: 0.32%,Ludicolo: 0.38%,Electrode: 0.1%,Ampharos: 0.03%,Nidoqueen: 0.03%,Houndoom: 0.4%,Qwilfish: 0.06%,Wailord: 0.04%,Donphan: 0.53%,Tauros: 0.25%,Regirock: 0.86%,Lapras: 0.26%,Kecleon: 0.07%,Rhydon: 0.17%,Espeon: 0.03%,Gardevoir: 0.24%,Luvdisc: 0.03%,Nidoking: 0.16%,Sceptile: 0.55%,Blastoise: 0.13%,Ninjask: 0.11%,Muk: 0.05%,Ursaring: 0.13%,Shiftry: 0.06%,Aggron: 0.15%,Misdreavus: 0.13%,Lunatone: 0.25%,Pikachu: 0.05%,Venomoth: 0.01%,Jynx: 0.23%,Flareon: 0.02%,Shuckle: 0.04%,Typhlosion: 0.11%,Omastar: 0.19%,Lanturn: 0.25%,Arcanine: 0.33%,Sharpedo: 0.02%,Absol: 0.03%,Togetic: 0.03%,Kangaskhan: 0.02%,Cradily: 0.2%,Camerupt: 0.29%,Politoed: 0.09%,Piloswine: 0.05%,Rapidash: 0.01%,Golduck: 0.1%,Hitmontop: 0.07%,Zangoose: 0.03%,Walrein: 0.05%,Chansey: 0.05%,Tentacruel: 0.04%,Hypno: 0.01%,Gorebyss: 0.01%,Scyther: 0.05%,Raichu: 0.01%,Lileep: 0.01%,Murkrow: 0.02%,Altaria: 0.01%,Nosepass: 0.01%,Butterfree: 0.03%,Entei: 0.09%,Mawile: 0.06%,Duskull: 0.01%,Hitmonlee: 0.09%,Sneasel: 0.05%,Dunsparce: 0.02%,Electabuzz: 0.07%,Hitmonchan: 0.01%,Exeggutor: 0.07%,Pinsir: 0.01%,Primeape: 0.04%,Seviper: 0.01%,Ninetales: 0.01%,Gligar: 0.03%,Kingler: 0.01%,Granbull: 0.01%,Bellossom: 0.01%,Linoone: 0.08%,Vileplume: 0.02%,Victreebel: 0.01%,Aron: 0.01%,Lickitung: 0.01%,Raticate: 0.05%,Volbeat: 0.02%,Sudowoodo: 0.09%,Swalot: 0.02%,Masquerain: 0.01%,Pelipper: 0.02%,Meganium: 0.02%,Clefable: 0.01%,Relicanth: 0.01%,Delibird: 0.02%,Pupitar: 0.01%,Clamperl: 0.01%,Whiscash: 0.0%
