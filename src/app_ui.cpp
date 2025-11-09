@@ -24,6 +24,7 @@
 
 using namespace std;
 
+//This function is used to create random pokemons names pokemon<number> from 1 to 100,000 - <array pokemon list size>
 Pokemon randomPokemon(int i) {
     string name = "pokemon" + to_string(i);
     map<string, float> teamMapping;
@@ -44,6 +45,7 @@ Pokemon randomPokemon(int i) {
     return pokemon;
 }
 
+//Used read data from organized data txt
 static vector<string> splitByComma(const string &line) {
     vector<string> parts;
     size_t start = 0, end = 0;
@@ -63,6 +65,7 @@ static string trim(const string &s) {
     return s.substr(b, e - b + 1);
 }
 
+//This loads all data accordingly from the organized file in order to use all of the pokemon
 static vector<Pokemon> loadPokemonsFromFile(const string &fileName) {
     ifstream infile(fileName);
     vector<Pokemon> pokemons;
@@ -76,6 +79,7 @@ static vector<Pokemon> loadPokemonsFromFile(const string &fileName) {
         size_t end = 0;
         vector<string> data;
         if (lineNumber % 3 == 0) {
+            //This iterates through the first line that is always the names
             if (lineNumber != 0) {
                 pokemons.push_back(pokemon);
                 pokemon.empty();
@@ -94,6 +98,7 @@ static vector<Pokemon> loadPokemonsFromFile(const string &fileName) {
                 pokemon.setGen(genNumI);
             }
         } else if (lineNumber % 3 == 1) {
+            //This iterates through the move stats that is the second line in the file
             map<string, float> moveStats;
             size_t pos = 0, next;
             while ((next = line.find(',', pos)) != string::npos) {
@@ -121,6 +126,7 @@ static vector<Pokemon> loadPokemonsFromFile(const string &fileName) {
             }
             pokemon.setMoveStats(moveStats);
         } else if (lineNumber % 3 == 2) {
+            //This handels the list line of every entry being their reammates and their percentages 
             map<string, float> teamStats;
             size_t pos = 0, next;
             while ((next = line.find(',', pos)) != string::npos) {
