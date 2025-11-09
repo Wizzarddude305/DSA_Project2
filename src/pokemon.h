@@ -2,7 +2,7 @@
 #include <map>
 using namespace std;
 
-//This class
+//This class just holds every pokemon's attributes
 class Pokemon {
 private:
     string name;
@@ -11,11 +11,13 @@ private:
     map<string, float> moveStats;
     map<string, float> teamStats;
 public:
+
     Pokemon() {
         name = "";
         teamStats.clear();
     }
 
+    //All types of constructors used in the project
     Pokemon(string name, int rank, int gen) {
         this->name = name;
         this->rank = rank;
@@ -26,7 +28,6 @@ public:
 
     Pokemon(string name) {
         this->name = name;
-
         //-1 means the rank and generation are not established
         rank = -1;
         gen = -1;
@@ -42,6 +43,15 @@ public:
         moveStats.clear();
     }
 
+    Pokemon(string name, map<string, float> teamStats, map<string, float> moveStats) {
+        this->name = name;
+        this->teamStats = teamStats;
+        rank = -1;
+        gen = -1;
+        this->moveStats = moveStats;
+    }
+
+    //This is for comparing pokemon for the data structures
     bool operator==(const Pokemon &pokemon) {
         if (this->name == pokemon.name && this->teamStats == pokemon.teamStats && this->moveStats == pokemon.moveStats && this->gen == pokemon.gen && this->rank == pokemon.rank) {
             return true;
@@ -50,6 +60,7 @@ public:
         }
     }
 
+    //This allows us to set pokemon equal to another one
     Pokemon& operator=(const Pokemon &pokemon) {
         this->name = pokemon.name;
         this->teamStats = pokemon.teamStats;
@@ -59,6 +70,7 @@ public:
         return *this;
     }
 
+    //All setters
     void setName(string name) {
         this->name = name;
     }
@@ -78,6 +90,7 @@ public:
         this->moveStats = moveStats;
     }
 
+    //Remove all attributes from a pokemon if needed
     void empty() {
         this->name.clear();
         this->gen = -1;
@@ -85,6 +98,8 @@ public:
         this->teamStats.clear();
         this->moveStats.clear();
     }
+
+    //Getters
     string getName() {
         return name;
     }

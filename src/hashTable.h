@@ -32,7 +32,8 @@ public:
         buckets = 5;
         //Store points via seperate chaining
         arr = new LinkedList[buckets];
-        //This hasnumber is determined by the amount of characters you're including
+        //This hasnumber is determined by the amount of characters you're including for our case where including 36
+        //36 being numbers (10) and lowercase letters (26) (all letters are turned lowercase for safety)
         hashNumber = 36;
         loadFactor = 0.0;
         elements = 0;
