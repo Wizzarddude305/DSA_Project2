@@ -3,7 +3,7 @@
 QT version 6.10.0
 **For Windows:**- Download Qt Online Installer- Install Qt 6.x (6.10.0 or later recommended)- Select either:  - **MinGW** components (if using MinGW compiler)  - **MSVC** components (if using Visual Studio)
 
-**For Linux:**```bashsudo apt-get install qt6-base-dev qt6-base-dev-tools```
+**For Linux:**```sudo apt-get install qt6-base-dev qt6-base-dev-tools```
 
 **For macOS:**```brew install qt@6```, if homebrew isn’t installed then follow the instructions of installing homebrew here
 https://docs.brew.sh/Installation
